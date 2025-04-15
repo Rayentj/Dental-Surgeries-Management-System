@@ -14,11 +14,23 @@ namespace DentalApp.Data.Repositories
         private readonly DentalAppDbContext _context;
         public AddressRepository(DentalAppDbContext context) => _context = context;
 
-        public async Task<IEnumerable<Address>> GetAllAsync() => await _context.Addresses.ToListAsync();
-        public async Task<Address> GetByIdAsync(int id) => await _context.Addresses.FindAsync(id);
+        // ✅ Include Patients and Surgeries for full DTO mapping
+        public async Task<IEnumerable<Address>> GetAllAsync() =>
+            await _context.Addresses
+                          .Include(a => a.Patients)
+                          .Include(a => a.Surgeries)
+                          .ToListAsync();
+
+        public async Task<Address> GetByIdAsync(int id) =>
+            await _context.Addresses
+                          .Include(a => a.Patients)
+                          .Include(a => a.Surgeries)
+                          .FirstOrDefaultAsync(a => a.AddressId == id);
+
         public async Task AddAsync(Address address) => await _context.Addresses.AddAsync(address);
         public void Update(Address address) => _context.Addresses.Update(address);
         public void Delete(Address address) => _context.Addresses.Remove(address);
         public async Task<bool> SaveChangesAsync() => await _context.SaveChangesAsync() > 0;
     }
+
 }

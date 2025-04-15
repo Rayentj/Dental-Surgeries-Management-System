@@ -1,5 +1,4 @@
 using AutoMapper;
-
 using DentalApp.Api.Mapper;
 using DentalApp.Data.Repositories;
 using DentalApp.Infra;
@@ -7,31 +6,45 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ? Add support for both API and MVC Views
+builder.Services.AddControllers();            // For API controllers
+builder.Services.AddControllersWithViews();   // For Razor Views
 
-builder.Services.AddControllers();
+// ? EF Core DB Context
 builder.Services.AddDbContext<DentalAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// ? Swagger (API documentation)
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddAutoMapper(typeof(MappingProfile));
-DependencyContainer.RegisterService(builder.Services);
 
+// ? AutoMapper config
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+// ? Register your repositories and services
+DependencyContainer.RegisterService(builder.Services);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ? Use Swagger in development
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(); // Available at /swagger
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles(); // ? Enable serving static files (CSS, JS for views)
 
+app.UseRouting();
 app.UseAuthorization();
 
-app.MapControllers();
+// ? Routing setup
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Patient}/{action=Index}/{id?}");
+
+// ? Still map all API controllers
+app.MapControllers(); // Your API controllers work as usual
 
 app.Run();

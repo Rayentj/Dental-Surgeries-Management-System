@@ -1,4 +1,5 @@
-﻿using DentalApp.Domain.Model;
+﻿using DentalApp.Domain.DTOs.Response;
+using DentalApp.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace DentalApp.Application.Services.Interfaces
 {
     public interface IAddressService
     {
-        Task<IEnumerable<Address>> GetAllAsync();
-        Task<Address> GetByIdAsync(int id);
-        Task<Address> CreateAsync(Address address);
+        Task<IEnumerable<AddressResponseDto>> GetAllAsync();
+        Task<AddressResponseDto> GetByIdAsync(int id);
+        Task<AddressResponseDto> CreateAsync(Address address);
     }
 }

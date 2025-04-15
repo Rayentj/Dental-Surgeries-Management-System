@@ -159,3 +159,5 @@ C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp
 C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp\bin\Debug\net8.0\BCrypt.Net-Next.dll
 C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp\bin\Debug\net8.0\BouncyCastle.Crypto.dll
+C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp\obj\Debug\net8.0\DentalApp.Api.RazorAssemblyInfo.cache
+C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp\obj\Debug\net8.0\DentalApp.Api.RazorAssemblyInfo.cs

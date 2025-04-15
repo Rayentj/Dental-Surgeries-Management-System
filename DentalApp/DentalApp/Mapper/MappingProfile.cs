@@ -27,11 +27,16 @@ namespace DentalApp.Api.Mapper
 
             // Address
             CreateMap<AddressRequestDto, Address>().ReverseMap();
-
             CreateMap<Address, AddressResponseDto>()
                 .ForMember(dest => dest.FullAddress,
                            opt => opt.MapFrom(src =>
-                               $"{src.Street}, {src.City}, {src.State} {src.Zip}"));
+                               $"{src.Street}, {src.City}, {src.State} {src.Zip}"))
+                .ForMember(dest => dest.PatientNames,
+                           opt => opt.MapFrom(src =>
+                               src.Patients.Select(p => $"{p.FirstName} {p.LastName}").ToList()))
+                .ForMember(dest => dest.SurgeryNames,
+                           opt => opt.MapFrom(src =>
+                               src.Surgeries.Select(s => s.Name).ToList()));
 
             // Surgery
             CreateMap<SurgeryRequestDto, Surgery>().ReverseMap();

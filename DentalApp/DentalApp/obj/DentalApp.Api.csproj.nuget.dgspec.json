@@ -380,8 +380,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "C:\\Users\\lenovo\\Desktop\\MIU\\ASD\\Dental_Surgerie_Mngmt_system\\DentalApp\\DentalApp.Application\\DentalApp.Application.csproj": {
+                "projectPath": "C:\\Users\\lenovo\\Desktop\\MIU\\ASD\\Dental_Surgerie_Mngmt_system\\DentalApp\\DentalApp.Application\\DentalApp.Application.csproj"
+              },
               "C:\\Users\\lenovo\\Desktop\\MIU\\ASD\\Dental_Surgerie_Mngmt_system\\DentalApp\\DentalApp.Data\\DentalApp.Data.csproj": {
                 "projectPath": "C:\\Users\\lenovo\\Desktop\\MIU\\ASD\\Dental_Surgerie_Mngmt_system\\DentalApp\\DentalApp.Data\\DentalApp.Data.csproj"
+              },
+              "C:\\Users\\lenovo\\Desktop\\MIU\\ASD\\Dental_Surgerie_Mngmt_system\\DentalApp\\DentalApp.Domain\\DentalApp.Domain.csproj": {
+                "projectPath": "C:\\Users\\lenovo\\Desktop\\MIU\\ASD\\Dental_Surgerie_Mngmt_system\\DentalApp\\DentalApp.Domain\\DentalApp.Domain.csproj"
               },
               "C:\\Users\\lenovo\\Desktop\\MIU\\ASD\\Dental_Surgerie_Mngmt_system\\DentalApp\\DentalApp.Infra\\DentalApp.Infra.csproj": {
                 "projectPath": "C:\\Users\\lenovo\\Desktop\\MIU\\ASD\\Dental_Surgerie_Mngmt_system\\DentalApp\\DentalApp.Infra\\DentalApp.Infra.csproj"

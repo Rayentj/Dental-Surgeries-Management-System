@@ -18,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DentalApp.Application\DentalApp.Application.csproj" />
     <ProjectReference Include="..\DentalApp.Data\DentalApp.Data.csproj" />
+    <ProjectReference Include="..\DentalApp.Domain\DentalApp.Domain.csproj" />
     <ProjectReference Include="..\DentalApp.Infra\DentalApp.Infra.csproj" />
   </ItemGroup>
 
