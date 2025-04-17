@@ -114,6 +114,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "DentalApp.Api.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDto",
+        "Type": "DentalApp.Domain.DTOs.UserLoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DentalApp.Api.Controllers.DentistController",
     "Method": "GetAll",
     "RelativePath": "api/Dentist",
@@ -300,6 +316,36 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DentalApp.Api.Controllers.TestController",
+    "Method": "AdminArea",
+    "RelativePath": "api/Test/admin-only",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DentalApp.Api.Controllers.TestController",
+    "Method": "AuthenticatedOnly",
+    "RelativePath": "api/Test/any-authenticated",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DentalApp.Api.Controllers.TestController",
+    "Method": "UserArea",
+    "RelativePath": "api/Test/user-only",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

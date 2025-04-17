@@ -20,5 +20,11 @@ namespace DentalApp.Data.Repositories
         public void Update(User user) => _context.Users.Update(user);
         public void Delete(User user) => _context.Users.Remove(user);
         public async Task<bool> SaveChangesAsync() => await _context.SaveChangesAsync() > 0;
+
+        public async Task<User> FindByEmailAsync(string email)
+        {
+            return await _context.Users.Include(u => u.Role)
+                                       .FirstOrDefaultAsync(u => u.Email == email);
+        }
     }
 }

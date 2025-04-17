@@ -1,5 +1,6 @@
 ﻿using DentalApp.Application.Services.Interfaces;
 using DentalApp.Domain.DTOs.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DentalApp.Api.Controllers
@@ -11,6 +12,7 @@ namespace DentalApp.Api.Controllers
         private readonly IUserService _service;
         public UserController(IUserService service) => _service = service;
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAll() => Ok(await _service.GetAllAsync());
 
@@ -21,6 +23,7 @@ namespace DentalApp.Api.Controllers
             return user == null ? NotFound() : Ok(user);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateUserRequestDto dto)
         {

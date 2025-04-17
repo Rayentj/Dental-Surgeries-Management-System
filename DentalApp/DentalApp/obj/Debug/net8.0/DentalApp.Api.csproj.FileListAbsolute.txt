@@ -161,3 +161,5 @@ C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp
 C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp\bin\Debug\net8.0\BouncyCastle.Crypto.dll
 C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp\obj\Debug\net8.0\DentalApp.Api.RazorAssemblyInfo.cache
 C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp\obj\Debug\net8.0\DentalApp.Api.RazorAssemblyInfo.cs
+C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\lenovo\Desktop\MIU\ASD\Dental_Surgerie_Mngmt_system\DentalApp\DentalApp\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll

@@ -15,5 +15,7 @@ namespace DentalApp.Data.Repositories.Interfaces
         void Update(User user);
         void Delete(User user);
         Task<bool> SaveChangesAsync();
+
+        Task<User> FindByEmailAsync(string email);
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DentalApp.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+896bda16352ba3c6d9a03a4c72ba50fbdfb7485b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+545a8e3ae9e7b87d8d378dd7aa91ac730001f434")]
 [assembly: System.Reflection.AssemblyProductAttribute("DentalApp.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DentalApp.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
