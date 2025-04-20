@@ -4,6 +4,7 @@ using DentalApp.Data.Repositories.Interfaces;
 using DentalApp.Domain.DTOs.Request;
 using DentalApp.Domain.DTOs.Response;
 using DentalApp.Domain.Model;
+using DentalApp.Infra.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,12 +36,25 @@ namespace DentalApp.Application.Services
             return _mapper.Map<UserResponseDto>(user);
         }
 
-        public async Task<UserResponseDto> CreateAsync(CreateUserRequestDto request)
+        public async Task<UserResponseDto> CreateAsync(CreateUserRequestDto dto)
         {
-            var user = _mapper.Map<User>(request);
+            var existing = await _repository.FindByEmailAsync(dto.Email);
+            if (existing != null) throw new DuplicateEmailException(dto.Email);
+
+            var user = _mapper.Map<User>(dto);
             await _repository.AddAsync(user);
             await _repository.SaveChangesAsync();
             return _mapper.Map<UserResponseDto>(user);
+        }
+
+        public Task<UserResponseDto> UpdateAsync(int id, CreateUserRequestDto dto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -16,4 +16,5 @@ namespace DentalApp.Data.Repositories.Interfaces
         void Delete(Surgery surgery);
         Task<bool> SaveChangesAsync();
     }
+
 }

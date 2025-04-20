@@ -30,6 +30,21 @@ namespace DentalApp.Api.Controllers
             var user = await _service.CreateAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = user.UserId }, user);
         }
+        [Authorize(Roles = "Admin")]
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] CreateUserRequestDto dto)
+        {
+            var updated = await _service.UpdateAsync(id, dto);
+            return Ok(updated);
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var deleted = await _service.DeleteAsync(id);
+            return deleted ? NoContent() : NotFound();
+        }
     }
 
 }

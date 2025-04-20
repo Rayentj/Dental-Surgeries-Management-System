@@ -87,6 +87,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles(); // ? Enable serving static files (CSS, JS for views)
 
+app.UseMiddleware<ExceptionMiddleware>();
+
+
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

@@ -25,8 +25,13 @@ namespace DentalApp.Infra
             services.AddScoped<IUserService, UserService>();
 
             services.AddScoped<TokenService>();
-            
 
+            services.AddScoped<IDentistRepository, DentistRepository>();
+            services.AddScoped<IDentistService, DentistService>();
+
+
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
 
 
         }

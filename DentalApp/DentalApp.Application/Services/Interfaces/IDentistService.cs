@@ -1,4 +1,6 @@
-﻿using DentalApp.Domain.Model;
+﻿using DentalApp.Domain.DTOs.Request;
+using DentalApp.Domain.DTOs.Response;
+using DentalApp.Domain.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +11,11 @@ namespace DentalApp.Application.Services.Interfaces
 {
     public interface IDentistService
     {
-        Task<IEnumerable<Dentist>> GetAllAsync();
-        Task<Dentist> GetByIdAsync(int id);
-        Task<Dentist> CreateAsync(Dentist dentist);
+        Task<DentistResponseDto> CreateAsync(DentistRequestDto dto);
+        Task<IEnumerable<DentistResponseDto>> GetAllAsync();
+        Task<DentistResponseDto> GetByIdAsync(int id);
+        Task<DentistResponseDto> UpdateAsync(int id, DentistRequestDto dto);
+        Task<bool> DeleteAsync(int id);
+
     }
 }

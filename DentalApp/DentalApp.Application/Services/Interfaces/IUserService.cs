@@ -13,5 +13,7 @@ namespace DentalApp.Application.Services.Interfaces
         Task<IEnumerable<UserResponseDto>> GetAllAsync();
         Task<UserResponseDto> GetByIdAsync(int id);
         Task<UserResponseDto> CreateAsync(CreateUserRequestDto request);
+        Task<UserResponseDto> UpdateAsync(int id, CreateUserRequestDto dto);
+        Task<bool> DeleteAsync(int id);
     }
 }

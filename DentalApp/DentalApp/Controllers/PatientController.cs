@@ -1,5 +1,6 @@
 ﻿using DentalApp.Application.Services.Interfaces;
 using DentalApp.Domain.DTOs.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DentalApp.Api.Controllers
@@ -35,6 +36,7 @@ namespace DentalApp.Api.Controllers
         }
 
         // POST: /Patient/Create
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(PatientRequestDto dto)
@@ -65,6 +67,7 @@ namespace DentalApp.Api.Controllers
         }
 
         // POST: /Patient/Edit/5
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, PatientRequestDto dto)
@@ -86,6 +89,7 @@ namespace DentalApp.Api.Controllers
         }
 
         // POST: /Patient/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("DeleteConfirmed")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int PatientId)

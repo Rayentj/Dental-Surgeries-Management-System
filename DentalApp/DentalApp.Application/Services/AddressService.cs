@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using DentalApp.Application.Exceptions;
 using DentalApp.Application.Services.Interfaces;
 using DentalApp.Data.Repositories.Interfaces;
+using DentalApp.Domain.DTOs.Request;
 using DentalApp.Domain.DTOs.Response;
 using DentalApp.Domain.Model;
 using System;
@@ -34,11 +36,32 @@ namespace DentalApp.Application.Services
             return _mapper.Map<AddressResponseDto>(address);
         }
 
-        public async Task<AddressResponseDto> CreateAsync(Address address)
+        public async Task<AddressResponseDto> CreateAsync(AddressRequestDto dto)
         {
+            var address = _mapper.Map<Address>(dto);
             await _repository.AddAsync(address);
             await _repository.SaveChangesAsync();
             return _mapper.Map<AddressResponseDto>(address);
+        }
+
+
+        public async Task<bool> UpdateAsync(int id, AddressRequestDto dto)
+        {
+            var entity = await _repository.GetByIdAsync(id)
+                         ?? throw new EntityNotFoundException($"Address ID {id} not found");
+
+            _mapper.Map(dto, entity);
+            _repository.Update(entity);
+            return await _repository.SaveChangesAsync();
+        }
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var entity = await _repository.GetByIdAsync(id)
+                         ?? throw new EntityNotFoundException($"Address ID {id} not found");
+
+            _repository.Delete(entity);
+            return await _repository.SaveChangesAsync();
         }
     }
 }

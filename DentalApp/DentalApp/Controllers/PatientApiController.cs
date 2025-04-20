@@ -1,5 +1,6 @@
 ﻿using DentalApp.Application.Services.Interfaces;
 using DentalApp.Domain.DTOs.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DentalApp.Api.Controllers
@@ -13,13 +14,14 @@ namespace DentalApp.Api.Controllers
         {
             _service = service;
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
             var patients = await _service.GetAllAsync();
             return Ok(patients);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -27,13 +29,14 @@ namespace DentalApp.Api.Controllers
             if (patient == null) return NotFound();
             return Ok(patient);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] PatientRequestDto request)
         {
             var created = await _service.CreateAsync(request);
             return CreatedAtAction(nameof(GetById), new { id = created.PatientId }, created);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] PatientRequestDto request)
         {
@@ -41,6 +44,7 @@ namespace DentalApp.Api.Controllers
             if (!success) return NotFound();
             return NoContent();
         }
+        [Authorize(Roles = "Admin")]
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
